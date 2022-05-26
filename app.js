@@ -10,6 +10,3 @@ app.listen(3000, () => {
     console.log('Started on localhost:3000');
 });
 
-
-//export
-module.exports = app;
