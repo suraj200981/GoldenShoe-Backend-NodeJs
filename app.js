@@ -2,14 +2,14 @@ const express = require('express');
 const app = express();
 
 
-app.get('/', (request, response) => {
-    response.send('Hello World!');
-});
-app.post();
-app.put();
-app.delete();
+const userRoute = require('./routes/User');
+app.use('/user', userRoute);
 
 
 app.listen(3000, () => {
-    console.log('Example app listening on port 3000!');
+    console.log('Started on localhost:3000');
 });
+
+
+//export
+module.exports = app;
