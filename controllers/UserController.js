@@ -1,9 +1,7 @@
 require('dotenv').config({ path: 'config.env', encoding: 'latin1'})
 
+const { send } = require('express/lib/response');
 const { Connection, Request } = require("tedious");
-console.log(process.env.userName);
-
-
 
 // Create connection to database
 const config = {
@@ -21,7 +19,6 @@ const config = {
   }
 };
 
-
 const connection = new Connection(config);
 
 // Attempt to connect and execute queries if connection goes through
@@ -29,7 +26,7 @@ connection.on("connect", err => {
     if (err) {
       console.error(err.message);
     } else {
-      module.exports.getAllUsers()
+     this.getAllUsers
     }
   });
 
@@ -57,13 +54,17 @@ module.exports = {
         request.on("row", columns => {
             columns.forEach(column => {
              // console.log(column.metadata.colName, column.value);
-              result += column.value + " ";
+              result += column.value.toString() + " ";
             });
             console.log(result);
+            res.send(result.toString());
+
           });
 
-        
+
+
           connection.execSql(request);
+
 
     }
   }
