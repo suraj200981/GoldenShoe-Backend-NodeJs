@@ -14,7 +14,7 @@ const config = {
     },
     type: "default"
   },
-  server: "goldenshoe.database.windows.net", 
+  server: process.env.server, 
   options: {
     database: process.env.database,
     encrypt: true
