@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-//constant usercontroller
 const UserController = require('../controllers/UserController')
+
+//user controller routes
 router.get('/', UserController.getAllUsers)
 
 //export
